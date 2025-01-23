@@ -17,7 +17,6 @@ const LandingCard: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true); // State to track loading
   const [error, setError] = useState<string | null>(null); // State to track errors
 
-
     const fetchCards = async () => {
       try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/cards`);
@@ -26,7 +25,7 @@ const LandingCard: React.FC = () => {
         }
         const data: any = await response.json(); // Ensure the fetched data matches the Card[] type
        console.log(data, "data")
-        setCards(data?.cards); // Update state with fetched data
+        setCards(data?.cards); // Update state with fetched
         setLoading(false);
       } catch (err: any) {
         setError(err.message || "Unknown error occurred");
