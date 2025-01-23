@@ -61,7 +61,7 @@ const LandingCard: React.FC = () => {
     }
   };
 
-  if (loading) return <p>Loading...</p>; // Show loading message
+  if (loading) return <p>Loading..</p>; // Show loading message
   if (error) return <p>Error: {error}</p>; // Show error message
 
   return (
