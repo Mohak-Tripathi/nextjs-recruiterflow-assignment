@@ -13,6 +13,7 @@
 
 "use client"
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const CreateCard: React.FC = () => {
   const [title, setTitle] = useState("");
@@ -20,6 +21,7 @@ const CreateCard: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault(); // Prevent form submission from reloading the page
@@ -28,7 +30,7 @@ const CreateCard: React.FC = () => {
     setSuccess(false);
 
     try {
-      const response = await fetch("http://localhost:8080/api/v1/card/new", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/card/new`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -47,6 +49,7 @@ const CreateCard: React.FC = () => {
       setTitle("");
       setDescription("");
       setSuccess(true);
+      router.push("/"); // Navigate back to the main page after updating
     } catch (err: any) {
       setError(err.message || "An error occurred");
     } finally {

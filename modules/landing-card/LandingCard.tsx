@@ -20,7 +20,7 @@ const LandingCard: React.FC = () => {
 
     const fetchCards = async () => {
       try {
-        const response = await fetch("http://localhost:8080/api/v1/cards");
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/cards`);
         if (!response.ok) {
           throw new Error(`Error: ${response.status}`);
         }
@@ -48,7 +48,7 @@ const LandingCard: React.FC = () => {
   const handleDelete = async (cardId: string) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/api/v1/card/${cardId}`,
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/card/${cardId}`,
         { method: "DELETE" }
       );
       if (!response.ok) {

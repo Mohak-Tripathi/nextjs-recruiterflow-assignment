@@ -35,7 +35,7 @@ const {cardId} = params
       if (!cardId) return; // Avoid fetching if cardId isn't available
       try {
         const response = await axios.get(
-          `http://localhost:8080/api/v1/card/${cardId}`
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/card/${cardId}`
         );
         const { title, description } = response.data; // Assuming the API response has title and description
         setTitle(title);
