@@ -3,6 +3,7 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 import CommonCard from "../common/Commoncard";
 import Link from "next/link";
+import NavigationBar from "../common/NavigationBar";
 
 // Define the type for a card
 interface Card {
@@ -76,10 +77,13 @@ const LandingCard: React.FC = () => {
   //   )}
   // </div>
   // </div>
+<>   
 
 
-<div className="w-full flex justify-center items-center">
-      <div className="grid grid-cols-3 gap-4 justify-center items-center w-[80%]">
+<NavigationBar/>
+
+<div className="w-full flex justify-center items-center p-8">
+      <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 justify-center items-center w-[80%]">
         {Array.isArray(cards) ? (
           // Ensure cards is an array
           <>
@@ -108,6 +112,8 @@ const LandingCard: React.FC = () => {
         )}
       </div>
     </div>
+
+    </>
   );
 };
 

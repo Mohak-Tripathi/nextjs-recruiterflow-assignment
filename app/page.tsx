@@ -15,7 +15,7 @@ const LandingCard = dynamic(() => import("../modules/landing-card"),  {ssr: fals
 const Page = () => {
   return (
     <div>
-      <h1 className="text-red-500">Welcome</h1>
+ 
       <LandingCard />
     </div>
   );

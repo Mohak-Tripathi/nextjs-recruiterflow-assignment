@@ -24,19 +24,20 @@ const CommonCard: React.FC<CommonCardProps> = ({
 }) => {
   return (
     // 345
-    <Card sx={{ maxWidth: 300 }}>
+    <Card sx={{ maxWidth: 300 }} className="h-full mt-2 justify-between flex flex-col">
       <CardActionArea>
         <CardMedia
+        className=""
           component="img"
-          height="100"
-          image="/rf-logo.png" 
+          height="10"
+          image="/rf-logo1.jpg" 
           alt="green iguana"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {title}
           </Typography>
-          <Typography variant="body2" sx={{ color: "text.secondary" }}>
+          <Typography variant="body2" sx={{ color: "text.secondary" }} className="!text-[16px]">
             {description}
           </Typography>
         </CardContent>
